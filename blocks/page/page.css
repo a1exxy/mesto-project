@@ -6,4 +6,10 @@
   color: #fff;
   font-family: Inter, Arial, sans-serif;
   z-index: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  font-feature-settings: "kern";
+  box-sizing: border-box;
 }
