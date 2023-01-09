@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="pages/index.css">
+  <title>Mesto</title>
+</head>
+<body class="page">
+<!-------------------------------------------------------------------->
+<header class="header">
+  <img class="header__logo" src="images/logo.svg" alt="Логотип проекта">
+  <div class="header__line"></div>
+</header>
+<!-------------------------------------------------------------------->
+<section class="profile">
+  <img class="profile__avatar" src="images/avatar.jpg" alt="Аватарка">
+  <div class="profile__info">
+    <h1 class="profile__name">
+      Росс Мэлоун
+      <a class="link profile__edit-button" id="profile__edit-button"></a>
+    </h1>
+    <p class="profile__about-me">Кинорежиссер</p>
+  </div>
+  <div class="profile__add-block">
+  <a class="link profile__add-button" href="#"></a>
+  </div>
+</section>
+<!-------------------------------------------------------------------->
+<section class="elements">
+  <div class="element">
+    <img class="element__img" src="images/place1.jpg" alt="Рандомная картинка">
+    <div class="element__caption">
+      <h2 class="element__title">
+        Киасоси
+      </h2>
+      <a class="link element__link" href="#"></a>
+    </div>
+  </div>
+  <div class="element">
+    <img class="element__img" src="images/place2.jpg" alt="Рандомная картинка">
+    <div class="element__caption">
+      <h2 class="element__title">
+        Бранс
+      </h2>
+      <a class="link element__link" href="#"></a>
+    </div>
+  </div>
+  <div class="element">
+    <img class="element__img" src="images/place3.jpg" alt="Рандомная картинка">
+    <div class="element__caption">
+      <h2 class="element__title">
+        Уруаклэртон
+      </h2>
+      <a class="link element__link" href="#"></a>
+    </div>
+  </div>
+  <div class="element">
+    <img class="element__img" src="images/place4.jpg" alt="Рандомная картинка">
+    <div class="element__caption">
+      <h2 class="element__title">
+        Аблебёрн
+      </h2>
+      <a class="link element__link" href="#"></a>
+    </div>
+  </div>
+  <div class="element">
+    <img class="element__img" src="images/place5.jpg" alt="Рандомная картинка">
+    <div class="element__caption">
+      <h2 class="element__title">
+        Злеигас
+      </h2>
+      <a class="link element__link" href="#"></a>
+    </div>
+  </div>
+  <div class="element">
+    <img class="element__img" src="images/place6.jpg" alt="Рандомная картинка">
+    <div class="element__caption">
+      <h2 class="element__title">
+        Аплоаберт
+      </h2>
+      <a class="link element__link" href="#"></a>
+    </div>
+  </div>
+</section>
+<!-------------------------------------------------------------------->
+<footer class="footer">
+  &copy; 2023 Mesto Russia
+</footer>
+<!-------------------------------------------------------------------->
+<div class="popup" id="popup">
+  <form class="popup__container">
+    <a class="link popup__close-button" id="popup__close-button"></a>
+    <p class="popup__caption">Редактировать профиль</p>
+    <input type="text" class="popup__name" value="Росс Мэлоун">
+    <div class="popup__line"></div>
+    <input type="text" class="popup__about-me" value="Кинорежиссер">
+    <div class="popup__line"></div>
+    <a class="link popup__save-button" id="popup__save-button">
+      Сохранить
+    </a>
+  </form>
+</div>
+<!-- Подключение временного скрипта для тестирования попапа -->
+<script src="script.js"></script>
+</body>
+</html>
