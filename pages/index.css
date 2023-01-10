@@ -2,7 +2,7 @@
 /* normalize */
 @import url(../vendor/normalize.css);
 /* fonts */
-@import url(../fonts/inter.css); /* Inter (source: https://rsms.me/inter/) */
+@import url(../fonts/fonts.css); /* Inter (source: https://rsms.me/inter/) */
 /* --- blocks --- */
 /* Mix */
 @import url(../blocks/link/link.css);
