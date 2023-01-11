@@ -11,4 +11,9 @@
   height: 100%;
 }
 
-
+@media screen and (max-width: 648px) {
+  .popup {
+    align-items: start;
+    top: 126px;
+  }
+}

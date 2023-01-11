@@ -8,3 +8,8 @@
   line-height: 17px;
   flex-shrink: 0;
 }
+@media screen and (max-width: 648px) {
+  .popup__about-me {
+    margin-top: 32px;
+  }
+}

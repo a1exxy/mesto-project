@@ -3,4 +3,6 @@
   background-color: #fff;
   overflow: hidden;
   width: 282px;
+  height: 361px;
+  box-sizing: border-box;
 }

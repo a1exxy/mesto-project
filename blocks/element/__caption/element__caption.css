@@ -2,5 +2,8 @@
   display: flex;
   justify-content: space-between;
   align-items: end;
-  margin: 25px 20px 30px 20px;
+  padding-top: 22px;
+  padding-left: 22px;
+  padding-right: 22px;
+  align-items: center;
 }
