@@ -1,9 +1,8 @@
 .element__caption {
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: center;
   padding-top: 22px;
   padding-left: 22px;
   padding-right: 22px;
-  align-items: center;
 }
