@@ -11,10 +11,12 @@
   color: #FFFFFF;
   margin: 0;
   margin-top: 48px;
-  height: 50px;
+  width: 100%;
   text-decoration: none;
   box-sizing: border-box;
   flex-shrink: 0;
+  padding: 13px 0;
+  outline: 1px dashed yellowgreen;
 }
 
 @media screen and (max-width: 648px) {
@@ -22,6 +24,5 @@
     font-size: 14px;
     line-height: 17px;
     margin-top: 45px;
-    height: 46px;
   }
 }

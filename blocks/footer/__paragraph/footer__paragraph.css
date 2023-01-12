@@ -1,18 +1,14 @@
-.profile__about-me {
+.footer__paragraph {
   margin: 0;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+  color: #545454;
 }
 
 @media screen and (max-width: 648px) {
-  .profile__about-me {
-    font-weight: 400;
+  .footer__paragraph {
     font-size: 14px;
     line-height: 17px;
-    text-align: center;
   }
 }

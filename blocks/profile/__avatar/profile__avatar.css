@@ -1,5 +1,8 @@
 .profile__avatar {
+  display: block;
   border-radius: 50%;
   width: 120px;
   height: 120px;
+  object-position: center center;
+  object-fit: cover;
 }

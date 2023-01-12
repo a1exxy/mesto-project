@@ -9,94 +9,100 @@
 <body class="page">
   <header class="header">
     <img class="header__logo" src="images/logo.svg" alt="Логотип проекта">
-    <div class="header__line"></div>
   </header>
   <main>
     <section class="profile" aria-label="Профайл">
       <img class="profile__avatar" src="images/avatar.jpg" alt="Аватарка">
+<!--      <img class="profile__avatar" src="https://picsum.photos/200/300" alt="Аватарка">-->
       <div class="profile__info">
         <h1 class="profile__name">
           Росс Мэлоун
-          <a class="link profile__edit-button" id="profile__edit-button"></a>
         </h1>
+        <button class="link profile__edit-button" id="profile__edit-button"></button>
         <p class="profile__about-me">Кинорежиссер</p>
       </div>
-      <div class="profile__add-block">
-      <a class="link profile__add-button" href="#"></a>
-      </div>
+      <button class="link profile__add-button" href="#"></button>
     </section>
     <section class="elements" aria-label="Элементы">
-      <div class="element">
-        <img class="element__img" src="images/place1.jpg" alt="Рандомная картинка">
+      <article class="element">
+        <img class="element__img" src="images/place1.jpg" alt="Изображение для сгенерированного места Трэлес - Мояк">
         <div class="element__caption">
           <h2 class="element__title">
             Трэлес
           </h2>
-          <a class="link element__link" href="#"></a>
+          <button class="link element__link" href="#"></button>
         </div>
-      </div>
-      <div class="element">
-        <img class="element__img" src="images/place2.jpg" alt="Рандомная картинка">
+      </article>
+      <article class="element">
+        <img class="element__img" src="images/place2.jpg" alt="Изображение для сгенерированного места Бранс - Причал">
         <div class="element__caption">
           <h2 class="element__title">
             Бранс
           </h2>
-          <a class="link element__link" href="#"></a>
+          <button class="link element__link" href="#"></button>
         </div>
-      </div>
-      <div class="element">
-        <img class="element__img" src="images/place3.jpg" alt="Рандомная картинка">
+      </article>
+      <article class="element">
+        <img class="element__img" src="images/place3.jpg" alt="Изображение для сгенерированного места Уруаклэртон - Берег">
         <div class="element__caption">
           <h2 class="element__title">
             Уруаклэртон
           </h2>
-          <a class="link element__link" href="#"></a>
+          <button class="link element__link" href="#"></button>
         </div>
-      </div>
-      <div class="element">
-        <img class="element__img" src="images/place4.jpg" alt="Рандомная картинка">
+      </article>
+      <article class="element">
+        <img class="element__img" src="images/place4.jpg" alt="Изображение для сгенерированного места Аблебёрн - Обрыв">
         <div class="element__caption">
           <h2 class="element__title">
             Аблебёрн
           </h2>
-          <a class="link element__link" href="#"></a>
+          <button class="link element__link" href="#"></button>
         </div>
-      </div>
-      <div class="element">
-        <img class="element__img" src="images/place5.jpg" alt="Рандомная картинка">
+      </article>
+      <article class="element">
+        <img class="element__img" src="images/place5.jpg" alt="Изображение для сгенерированного места Злеигас - Водопад">
         <div class="element__caption">
           <h2 class="element__title">
             Злеигас
           </h2>
-          <a class="link element__link element__link_active" href="#"></a>
+          <button class="link element__link element__link_active" href="#"></button>
         </div>
-      </div>
-      <div class="element">
-        <img class="element__img" src="images/place6.jpg" alt="Рандомная картинка">
+      </article>
+      <article class="element">
+        <img class="element__img" src="images/place6.jpg" alt="Изображение для сгенерированного места Старонижестеблиевская - Море">
         <div class="element__caption">
           <h2 class="element__title">
             Старонижестеблиевская
           </h2>
-          <a class="link element__link" href="#"></a>
+          <button class="link element__link" href="#"></button>
         </div>
-      </div>
+      </article>
     </section>
   </main>
   <footer class="footer">
-    &copy; 2023 Mesto Russia
+    <p class="footer__paragraph">
+      &copy; 2023 Mesto Russia
+    </p>
   </footer>
   <div class="popup" id="popup">
-    <form class="popup__container">
-      <a class="link popup__close-button" id="popup__close-button"></a>
-      <p class="popup__caption">Редактировать профиль</p>
-      <input type="text" class="popup__name" value="Росс Мэлоун">
-      <div class="popup__line"></div>
-      <input type="text" class="popup__about-me" value="Кинорежиссер">
-      <div class="popup__line"></div>
-      <a class="link popup__save-button" id="popup__save-button">
-        Сохранить
-      </a>
-    </form>
+    <div class="popup__container">
+      <h3 class="popup__caption">Редактировать профиль</h3>
+      <form name="profile-editor">
+        <ul class="popup__inputs">
+          <li>
+            <input type="text" class="popup__text-input" value="Росс Мэлоун" name="name" placeholder="Имя">
+          </li>
+          <li>
+            <input type="text" class="popup__text-input" value="Кинорежиссер" name="about-me" placeholder="Обо мне">
+          </li>
+        </ul>
+        <button class="link popup__save-button" id="popup__save-button">
+          Сохранить
+        </button>
+      </form>
+      <button class="link popup__close-button" id="popup__close-button"></button>
+    </div>
   </div>
   <!-- Подключение временного скрипта для тестирования попапа -->
   <script src="script.js"></script>
