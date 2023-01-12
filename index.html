@@ -17,10 +17,10 @@
         <h1 class="profile__name">
           Росс Мэлоун
         </h1>
-        <button class="link profile__edit-button" id="profile__edit-button"></button>
+        <button type="button" class="link profile__edit-button" id="profile__edit-button"></button>
         <p class="profile__about-me">Кинорежиссер</p>
       </div>
-      <button class="link profile__add-button" href="#"></button>
+      <button type="button" class="link profile__add-button"></button>
     </section>
     <section class="elements" aria-label="Элементы">
       <article class="element">
@@ -29,7 +29,7 @@
           <h2 class="element__title">
             Трэлес
           </h2>
-          <button class="link element__link" href="#"></button>
+          <button type="button" class="link element__link"></button>
         </div>
       </article>
       <article class="element">
@@ -38,7 +38,7 @@
           <h2 class="element__title">
             Бранс
           </h2>
-          <button class="link element__link" href="#"></button>
+          <button type="button" class="link element__link"></button>
         </div>
       </article>
       <article class="element">
@@ -47,7 +47,7 @@
           <h2 class="element__title">
             Уруаклэртон
           </h2>
-          <button class="link element__link" href="#"></button>
+          <button type="button" class="link element__link"></button>
         </div>
       </article>
       <article class="element">
@@ -56,7 +56,7 @@
           <h2 class="element__title">
             Аблебёрн
           </h2>
-          <button class="link element__link" href="#"></button>
+          <button type="button" class="link element__link"></button>
         </div>
       </article>
       <article class="element">
@@ -65,7 +65,7 @@
           <h2 class="element__title">
             Злеигас
           </h2>
-          <button class="link element__link element__link_active" href="#"></button>
+          <button type="button" class="link element__link element__link_active"></button>
         </div>
       </article>
       <article class="element">
@@ -74,7 +74,7 @@
           <h2 class="element__title">
             Старонижестеблиевская
           </h2>
-          <button class="link element__link" href="#"></button>
+          <button type="button" class="link element__link"></button>
         </div>
       </article>
     </section>
@@ -87,20 +87,14 @@
   <div class="popup" id="popup">
     <div class="popup__container">
       <h3 class="popup__caption">Редактировать профиль</h3>
-      <form name="profile-editor">
-        <ul class="popup__inputs">
-          <li>
-            <input type="text" class="popup__text-input" value="Росс Мэлоун" name="name" placeholder="Имя">
-          </li>
-          <li>
-            <input type="text" class="popup__text-input" value="Кинорежиссер" name="about-me" placeholder="Обо мне">
-          </li>
-        </ul>
-        <button class="link popup__save-button" id="popup__save-button">
+      <form name="profile-editor" class="popup__inputs">
+        <input type="text" class="popup__text-input" value="Росс Мэлоун" name="name" placeholder="Имя">
+        <input type="text" class="popup__text-input" value="Кинорежиссер" name="about-me" placeholder="Обо мне">
+        <button type="button" class="link popup__save-button" id="popup__save-button">
           Сохранить
         </button>
       </form>
-      <button class="link popup__close-button" id="popup__close-button"></button>
+      <button type="button" class="link popup__close-button" id="popup__close-button"></button>
     </div>
   </div>
 </body>
