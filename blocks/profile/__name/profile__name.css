@@ -10,11 +10,6 @@
   white-space: nowrap;
   overflow: hidden;
 }
-/*.profile__name::after {*/
-/*  content: "";*/
-/*  height: 100%;*/
-/*  display: block;*/
-/*}*/
 
 @media screen and (max-width: 648px) {
   .profile__name {

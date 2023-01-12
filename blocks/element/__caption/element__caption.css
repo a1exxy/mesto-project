@@ -6,6 +6,7 @@
   padding-left: 22px;
   padding-right: 22px;
 }
+
 @media screen and (max-width: 648px) {
   .element__caption {
     padding-top: 24px;
