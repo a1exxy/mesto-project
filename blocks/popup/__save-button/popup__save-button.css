@@ -16,6 +16,7 @@
   box-sizing: border-box;
   flex-shrink: 0;
   padding: 13px 0;
+  border: 0;
 }
 
 @media screen and (max-width: 648px) {
