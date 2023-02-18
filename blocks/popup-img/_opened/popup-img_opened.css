@@ -1,4 +1,5 @@
 /*noinspection CssUnusedSymbol*/
 .popup-img_opened {
-  display: flex;
+  visibility: visible;
+  opacity: 1;
 }

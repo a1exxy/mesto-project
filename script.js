@@ -43,6 +43,7 @@ const ProfileName = document.querySelector('.profile__name') // профайл
 const ProfileAboutMe = document.querySelector('.profile__about-me')
 const popupImg = document.querySelector('.popup-img') // просмотр картинки
 const popupImgCloseBtn = document.querySelector('.popup-img__close-button')
+
 function buildCard(name, link){
   // Функция создания карточки
   // возвращает объект карточки

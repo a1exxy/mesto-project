@@ -1,4 +1,5 @@
 /*noinspection CssUnusedSymbol*/
 .popup-newplace_opened {
-  display: flex;
+  visibility: visible;
+  opacity: 1;
 }
