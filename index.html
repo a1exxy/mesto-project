@@ -14,69 +14,14 @@
     <section class="profile" aria-label="Профайл">
       <img class="profile__avatar" src="images/avatar.jpg" alt="Аватарка">
       <div class="profile__info">
-        <h1 class="profile__name">
-          Росс Мэлоун
-        </h1>
+        <h1 class="profile__name">Росс Мэлоун</h1>
         <button type="button" class="link profile__edit-button" id="profile__edit-button"></button>
         <p class="profile__about-me">Кинорежиссер</p>
       </div>
       <button type="button" class="link profile__add-button"></button>
     </section>
     <section class="elements" aria-label="Элементы">
-      <article class="element">
-        <img class="element__img" src="images/place1.jpg" alt="Изображение для сгенерированного места Трэлес - Мояк">
-        <div class="element__caption">
-          <h2 class="element__title">
-            Трэлес
-          </h2>
-          <button type="button" class="link element__link"></button>
-        </div>
-      </article>
-      <article class="element">
-        <img class="element__img" src="images/place2.jpg" alt="Изображение для сгенерированного места Бранс - Причал">
-        <div class="element__caption">
-          <h2 class="element__title">
-            Бранс
-          </h2>
-          <button type="button" class="link element__link"></button>
-        </div>
-      </article>
-      <article class="element">
-        <img class="element__img" src="images/place3.jpg" alt="Изображение для сгенерированного места Уруаклэртон - Берег">
-        <div class="element__caption">
-          <h2 class="element__title">
-            Уруаклэртон
-          </h2>
-          <button type="button" class="link element__link"></button>
-        </div>
-      </article>
-      <article class="element">
-        <img class="element__img" src="images/place4.jpg" alt="Изображение для сгенерированного места Аблебёрн - Обрыв">
-        <div class="element__caption">
-          <h2 class="element__title">
-            Аблебёрн
-          </h2>
-          <button type="button" class="link element__link"></button>
-        </div>
-      </article>
-      <article class="element">
-        <img class="element__img" src="images/place5.jpg" alt="Изображение для сгенерированного места Злеигас - Водопад">
-        <div class="element__caption">
-          <h2 class="element__title">
-            Злеигас
-          </h2>
-          <button type="button" class="link element__link element__link_active"></button>
-        </div>
-      </article>
-      <article class="element">
-        <img class="element__img" src="images/place6.jpg" alt="Изображение для сгенерированного места Старонижестеблиевская - Море">
-        <div class="element__caption">
-          <h2 class="element__title">
-            Старонижестеблиевская
-          </h2>
-          <button type="button" class="link element__link"></button>
-        </div>
-      </article>
+      <!-- сюда добавляются карточки -->
     </section>
   </main>
   <footer class="footer">
@@ -88,14 +33,49 @@
     <div class="popup__container">
       <h3 class="popup__caption">Редактировать профиль</h3>
       <form name="profile-editor" class="popup__inputs">
-        <input type="text" class="popup__text-input" value="Росс Мэлоун" name="name" placeholder="Имя">
-        <input type="text" class="popup__text-input" value="Кинорежиссер" name="about-me" placeholder="Обо мне">
-        <button type="submit" class="link popup__save-button" id="popup__save-button">
+        <input type="text" class="popup__text-input" id="editProfileName" value="Росс Мэлоун" name="name" placeholder="Имя">
+        <input type="text" class="popup__text-input" id="editProfileAboutMe" value="Кинорежиссер" name="about-me" placeholder="Обо мне">
+        <button type="submit" class="link popup__save-button">
           Сохранить
         </button>
       </form>
-      <button type="button" class="link popup__close-button" id="popup__close-button"></button>
+      <button type="button" class="link popup__close-button"></button>
     </div>
   </div>
+  <div class="popup-newplace">
+    <div class="popup-newplace__container">
+      <h3 class="popup-newplace__caption">Новое место</h3>
+      <form name="newplace-editor" class="popup-newplace__inputs">
+        <input type="text" class="popup-newplace__text-input" id="newPlaceName" value="" name="newplace-name" placeholder="Название">
+        <input type="text" class="popup-newplace__text-input" id="newPlaceURL" value="" name="newplace-url" placeholder="Ссылка на картинку">
+        <button type="submit" class="link popup-newplace__save-button" >
+          Создать
+        </button>
+      </form>
+      <button type="button" class="link popup-newplace__close-button"></button>
+    </div>
+  </div>
+  <div class="popup-img">
+    <div class="popup-img__container">
+      <button type="button" class="link popup-img__close-button"></button>
+      <img class="popup-img__view" src="" alt="Изображение ">
+      <h3 class="popup-img__caption"></h3>
+    </div>
+  </div>
+  <template class="element-template">
+    <article class="element">
+      <a href="#" class="element__show">
+        <img class="element__img" src="" alt="Изображение ">
+      </a>
+      <button type="button" class="link element__trash"></button>
+      <div class="element__caption">
+        <h2 class="element__title">
+          <!--  Название элемента        -->
+        </h2>
+        <button type="button" class="link element__link"></button>
+      </div>
+    </article>
+  </template>
+  <script src="script.js"></script>
 </body>
 </html>
