@@ -117,7 +117,9 @@ editProfileBtn.addEventListener('click',() => {
 
 editProfileForm.addEventListener('submit', evt => {
   evt.preventDefault();
-  ProfileName.textContent = editProfileName.value
-  ProfileAboutMe.textContent = editProfileAboutMe.value
+  if (editProfileName.value.length > 0 && editProfileAboutMe.value.length > 0) {
+    ProfileName.textContent = editProfileName.value
+    ProfileAboutMe.textContent = editProfileAboutMe.value
+  }
   closePopup(editProfilePopup)
 });
