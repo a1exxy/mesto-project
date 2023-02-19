@@ -58,7 +58,7 @@ function buildCard(name, link){
   // возвращает объект карточки
   const card = elementTemplate.querySelector('.element').cloneNode(true)
   card.querySelector('.element__img').src = link
-  card.querySelector('.element__img').alt += name
+  card.querySelector('.element__img').alt = "Изображение " + name
   card.querySelector('.element__title').textContent = name
   card.querySelector('.element__link').addEventListener('click', evt => {
     evt.target.classList.toggle('element__link_active')
