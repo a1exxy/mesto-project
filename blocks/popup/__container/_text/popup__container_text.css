@@ -1,4 +1,4 @@
-.popup-newplace__container {
+.popup__container_text {
   width: 430px;
   height: 330px;
   background-color: rgba(255,255,255,1);
@@ -7,18 +7,15 @@
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
   margin: 0 auto;
-  position: relative;
   display: flex;
   flex-direction: column;
   padding: 36px;
   padding-top: 34px;
   box-sizing: border-box;
-  z-index: 200;
   flex-shrink: 0;
 }
-
 @media screen and (max-width: 648px) {
-  .popup-newplace__container {
+  .popup__container_text {
     width: 282px;
     height: 322px;
     padding: 22px;

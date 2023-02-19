@@ -29,12 +29,12 @@
       &copy; 2023 Mesto Russia
     </p>
   </footer>
-  <div class="popup" id="popup">
-    <div class="popup__container">
+  <div class="popup popup-editprofile">
+    <div class="popup__container popup__container_text">
       <h3 class="popup__caption">Редактировать профиль</h3>
-      <form name="profile-editor" class="popup__inputs">
-        <input type="text" class="popup__text-input" id="editProfileName" value="Росс Мэлоун" name="name" placeholder="Имя">
-        <input type="text" class="popup__text-input" id="editProfileAboutMe" value="Кинорежиссер" name="about-me" placeholder="Обо мне">
+      <form class="popup__inputs profile-editor">
+        <input type="text" class="popup__text-input editProfileName"  value="Росс Мэлоун" name="name" placeholder="Имя">
+        <input type="text" class="popup__text-input editProfileAboutMe"  value="Кинорежиссер" name="about-me" placeholder="Обо мне">
         <button type="submit" class="link popup__save-button">
           Сохранить
         </button>
@@ -42,30 +42,30 @@
       <button type="button" class="link popup__close-button"></button>
     </div>
   </div>
-  <div class="popup-newplace">
-    <div class="popup-newplace__container">
-      <h3 class="popup-newplace__caption">Новое место</h3>
-      <form name="newplace-editor" class="popup-newplace__inputs">
-        <input type="text" class="popup-newplace__text-input" id="newPlaceName" value="" name="newplace-name" placeholder="Название">
-        <input type="text" class="popup-newplace__text-input" id="newPlaceURL" value="" name="newplace-url" placeholder="Ссылка на картинку">
-        <button type="submit" class="link popup-newplace__save-button" >
+  <div class="popup popup-newplace">
+    <div class="popup__container popup__container_text">
+      <h3 class="popup__caption">Новое место</h3>
+      <form class="popup__inputs newplace-form">
+        <input type="text" class="popup__text-input newPlaceName" value="" name="newplace-name" placeholder="Название">
+        <input type="text" class="popup__text-input newPlaceURL" value="" name="newplace-url" placeholder="Ссылка на картинку">
+        <button type="submit" class="link popup__save-button" >
           Создать
         </button>
       </form>
-      <button type="button" class="link popup-newplace__close-button"></button>
+      <button type="button" class="link popup__close-button"></button>
     </div>
   </div>
-  <div class="popup-img">
-    <div class="popup-img__container">
-      <button type="button" class="link popup-img__close-button"></button>
-      <img class="popup-img__view" src="" alt="Изображение ">
-      <h3 class="popup-img__caption"></h3>
+  <div class="popup popup-img">
+    <div class="popup__container">
+      <button type="button" class="link popup__close-button"></button>
+      <img class="popup__view" src="" alt="Изображение ">
+      <h3 class="popup__caption popup__caption_text"></h3>
     </div>
   </div>
   <template class="element-template">
     <article class="element">
       <a href="#" class="element__show">
-        <img class="element__img" src="" alt="Изображение ">
+        <img class="element__img" src="" alt="">
       </a>
       <button type="button" class="link element__trash"></button>
       <div class="element__caption">
