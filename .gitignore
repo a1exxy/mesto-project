@@ -1,2 +1,4 @@
-/.idea
-/figma
+/.idea/
+/figma/
+/node_modules/
+/dist/
