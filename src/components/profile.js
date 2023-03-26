@@ -1,6 +1,8 @@
 //           Изменение профайла
 
 import {openPopup, closePopup} from './modal.js'
+import {runValidation} from './validate.js'
+import {classes, selectors} from './consts.js'
 const editProfilePopup = document.querySelector('.popup-editprofile') // редактирование профайла
 const editProfileBtn = document.querySelector('.profile__edit-button')
 const editProfileForm = document.querySelector('.profile-editor')
@@ -14,6 +16,7 @@ function editProfile(){
     editProfileName.value = ProfileName.textContent
     editProfileAboutMe.value = ProfileAboutMe.textContent
     openPopup(editProfilePopup)
+    runValidation('.profile-editor', selectors.inputSelector, classes.inputErrorClass, classes.errorActiveClass)
   })
 
   editProfileForm.addEventListener('submit', evt => {

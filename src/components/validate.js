@@ -2,7 +2,7 @@
 
 function showInputError(formElement, inputElement, errorMessage, inputErrorClass, errorActiveClass) {
   // Функция отображения ошибки поля
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`) // Находим элемент ошибки внутри самой функции
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`)
   inputElement.classList.add(inputErrorClass)
   errorElement.classList.add(errorActiveClass)
   errorElement.textContent = errorMessage
@@ -10,7 +10,7 @@ function showInputError(formElement, inputElement, errorMessage, inputErrorClass
 
 function hideInputError(formElement, inputElement, inputErrorClass, errorActiveClass) {
   // Функция скрытия ошибки поля
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`) // Находим элемент ошибки
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`)
   inputElement.classList.remove(inputErrorClass)
   errorElement.classList.remove(errorActiveClass)
   errorElement.textContent = ''
@@ -23,17 +23,26 @@ function hasInvalidInput(inputList) {
   })
 }
 
+function activateSubmitBtn(buttonElement, inactiveButtonClass) {
+  // Функция активации кнопки Сохранить
+  buttonElement.disabled = false
+  buttonElement.classList.remove(inactiveButtonClass)
+}
+function deactivateSubmitBtn(buttonElement, inactiveButtonClass) {
+  // Функция декактивации кнопки Сохранить
+  buttonElement.disabled = true
+  buttonElement.classList.add(inactiveButtonClass)
+}
+
 function toggleButtonState(inputList, buttonElement, inactiveButtonClass) {
   // Функция отключение кнопки сохранения
   // Если есть хотя бы один невалидный инпут
   if (hasInvalidInput(inputList)) {
     // сделай кнопку неактивной
-    buttonElement.disabled = true
-    buttonElement.classList.add(inactiveButtonClass)
+    deactivateSubmitBtn(buttonElement, inactiveButtonClass)
   } else {
     // иначе сделай кнопку активной
-    buttonElement.disabled = false
-    buttonElement.classList.remove(inactiveButtonClass)
+    activateSubmitBtn(buttonElement, inactiveButtonClass)
   }
 }
 
@@ -51,23 +60,32 @@ function isValid(formElement, inputElement, inputErrorClass, errorActiveClass) {
   }
 }
 
-function enableValidation (formSelector, inputSelector, submitButtonSelector,
-                           inactiveButtonClass, inputErrorClass, errorActiveClass) {
-  // Функция валидации форм
-  const formElement = document.querySelector(formSelector)
-  const submitElement = formElement.querySelector(submitButtonSelector)
-  const inputList = Array.from(formElement.querySelectorAll(inputSelector))
-  // Валидация полей
-  inputList.forEach((inputElement) => {
-    inputElement.addEventListener('input', () => {
-      isValid(formElement, inputElement, inputErrorClass, errorActiveClass)
-    })
-  })
-  // Отключение кнопки сохраненния
-  toggleButtonState(inputList, submitElement, inactiveButtonClass)
-  formElement.addEventListener('input', () => {
-    toggleButtonState(inputList, submitElement, inactiveButtonClass)
+const runValidation = (formSelector, inputSelector, inputErrorClass, errorActiveClass) => {
+  const form = document.querySelector(formSelector)
+  form.querySelectorAll(inputSelector).forEach((inputElement) => {
+    isValid(form, inputElement, inputErrorClass, errorActiveClass)
   })
 }
 
-export default enableValidation
+function enableValidation (formSelector, inputSelector, submitButtonSelector,
+                           inactiveButtonClass, inputErrorClass, errorActiveClass) {
+  // Функция валидации форм
+  document.querySelectorAll(formSelector).forEach((formElement) => {
+    const submitElement = formElement.querySelector(submitButtonSelector)
+    const inputList = Array.from(formElement.querySelectorAll(inputSelector))
+    // Валидация полей
+    inputList.forEach((inputElement) => {
+      inputElement.addEventListener('input', () => {
+        isValid(formElement, inputElement, inputErrorClass, errorActiveClass)
+      })
+    })
+    // Отключение кнопки сохраненния
+    toggleButtonState(inputList, submitElement, inactiveButtonClass)
+    formElement.addEventListener('input', () => {
+      toggleButtonState(inputList, submitElement, inactiveButtonClass)
+    })
+  })
+}
+
+export  {enableValidation, deactivateSubmitBtn, runValidation}
+

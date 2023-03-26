@@ -2,6 +2,8 @@
 
 import {openPopup, closePopup} from './modal.js'
 import {initialCards} from '../config/local-start.cfg.js'
+import {deactivateSubmitBtn} from './validate.js'
+import {classes, selectors} from './consts.js'
 
 const newPlaceForm = document.querySelector('.newplace-form')
 const newPlaceBtn =  document.querySelector('.profile__add-button')
@@ -52,6 +54,7 @@ function newCard(){
       elements.prepend(buildCard(newPlaceName.value, newPlaceURL.value))
     }
     evt.target.reset()
+    deactivateSubmitBtn(evt.target.querySelector(selectors.submitButtonSelector), classes.inactiveButtonClass)
     closePopup(newPlacePopup)
   })
 }

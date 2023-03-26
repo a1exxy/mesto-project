@@ -53,8 +53,9 @@ module.exports = () => {
       new CleanWebpackPlugin(),
       new MiniCssExtractPlugin(),
       new webpack.DefinePlugin({
-        "process.env.BACKEND_API_URL": JSON.stringify(process.env.BACKEND_API_URL),
-        "process.env.BACKEND_API_TOKEN": JSON.stringify(process.env.BACKEND_API_TOKEN)
+        'process.env.BACKEND_API_URL': JSON.stringify(process.env.BACKEND_API_URL),
+        'process.env.BACKEND_API_TOKEN': JSON.stringify(process.env.BACKEND_API_TOKEN),
+        'process.env.VERSION': JSON.stringify(process.env.VERSION),
       })
     ]
   }
