@@ -2,8 +2,6 @@
 
 import {openPopup, closePopup} from './modal.js'
 import {initialCards} from '../config/local-start.cfg.js'
-import {deactivateSubmitBtn} from './validate.js'
-import {classes, selectors} from './consts.js'
 
 const newPlaceForm = document.querySelector('.newplace-form')
 const newPlaceBtn =  document.querySelector('.profile__add-button')
@@ -20,8 +18,9 @@ function buildCard(name, link){
   // Функция создания карточки
   // возвращает объект карточки
   const card = elementTemplate.querySelector('.element').cloneNode(true)
-  card.querySelector('.element__img').src = link
-  card.querySelector('.element__img').alt = "Изображение " + name
+  const elementImg = card.querySelector('.element__img')
+  elementImg.src = link
+  elementImg.alt = "Изображение " + name
   card.querySelector('.element__title').textContent = name
   card.querySelector('.element__link').addEventListener('click', evt => {
     evt.target.classList.toggle('element__link_active')
@@ -29,17 +28,16 @@ function buildCard(name, link){
   card.querySelector('.element__trash').addEventListener('click', evt => {
     evt.target.closest('.element').remove()
   })
-  card.querySelector('.element__show').addEventListener('click', evt => {
-    const title = evt.target.closest('.element').querySelector('.element__title').textContent
-    imageTitle.textContent = title
-    image.alt = "Изображение " + title
-    image.src = evt.target.src
+  card.querySelector('.element__show').addEventListener('click', () => {
+    imageTitle.textContent = name
+    image.alt = "Изображение " + name
+    image.src = link
     openPopup(imagePopup)
   })
   return card
 }
 
-function newCard(){
+function initCardPopupListeners(){
   //  Добавление карточек
 
   // Кнопка открытия диалога добавления нового места
@@ -47,24 +45,21 @@ function newCard(){
     openPopup(newPlacePopup)
   })
 
-  // Кнопка сохранить в форме добавления новго места
+  // Кнопка сохранить в форме добавления нового места
   newPlaceForm.addEventListener('submit', evt => {
     evt.preventDefault();
-    if (newPlaceName.value.length > 0 && newPlaceURL.value.length > 0) {
-      elements.prepend(buildCard(newPlaceName.value, newPlaceURL.value))
-    }
+    elements.prepend(buildCard(newPlaceName.value, newPlaceURL.value))
     evt.target.reset()
-    deactivateSubmitBtn(evt.target.querySelector(selectors.submitButtonSelector), classes.inactiveButtonClass)
     closePopup(newPlacePopup)
   })
 }
 
-function initialAddCards() {
+function renderInitialCards() {
    // Первичное добавление карточек
   initialCards.forEach(elem => {
     elements.append(buildCard(elem.name, elem.link))
   })
 }
 
-export {newCard, initialAddCards}
+export {initCardPopupListeners, renderInitialCards}
 

@@ -1,37 +1,32 @@
 // Модальные окна
 
-const handlerEscBtn = (evt) => {
+const handleEscBtn = (evt) => {
   // Закрытие по Esc
   if (evt.code === 'Escape') {
-    const opened_popup = document.querySelector('.popup_opened')
-    closePopup(opened_popup)
+    closePopup(document.querySelector('.popup_opened'))
   }
 }
 
 const closePopup = (popup) => {
   // функция закрытия модального окна
   popup.classList.remove('popup_opened')
-  document.removeEventListener('keydown', handlerEscBtn)
+  document.removeEventListener('keydown', handleEscBtn)
 }
 
 const openPopup = (popup) => {
   // функция открытия модального окна
   popup.classList.add('popup_opened')
-  document.addEventListener('keydown', handlerEscBtn)
+  document.addEventListener('keydown', handleEscBtn)
 }
 
 function addCloseFunction() {
   // Закрытие попапов
-  document.querySelectorAll('.popup__close-button').forEach((btn) => {
-    // Добавление функций закрытия для крестиков всех попапов
-    btn.addEventListener('click',evt => {
-      closePopup(evt.target.closest('.popup'))
-    })
-  })
   document.querySelectorAll('.popup').forEach((popup) => {
-    // закрытие попапов при клие на пустое место
-    popup.addEventListener('click', evt => {
-      closePopup(evt.target)
+    popup.addEventListener('mousedown', (evt) => {
+      // Для информации: в yandex_browser и firefox под ubuntu воспроизвести багу с click не удалось - работает и так и так...
+      if (evt.target.classList.contains('popup_opened') || evt.target.classList.contains('popup__close-button')) {
+          closePopup(popup)
+      }
     })
   })
 }

@@ -60,7 +60,7 @@ function isValid(formElement, inputElement, inputErrorClass, errorActiveClass) {
   }
 }
 
-const runValidation = (formSelector, inputSelector, inputErrorClass, errorActiveClass) => {
+const checkFormValidity = (formSelector, inputSelector, inputErrorClass, errorActiveClass) => {
   const form = document.querySelector(formSelector)
   form.querySelectorAll(inputSelector).forEach((inputElement) => {
     isValid(form, inputElement, inputErrorClass, errorActiveClass)
@@ -84,8 +84,11 @@ function enableValidation (formSelector, inputSelector, submitButtonSelector,
     formElement.addEventListener('input', () => {
       toggleButtonState(inputList, submitElement, inactiveButtonClass)
     })
+    formElement.addEventListener('reset', () => {
+      deactivateSubmitBtn(submitElement, inactiveButtonClass)
+    })
   })
 }
 
-export  {enableValidation, deactivateSubmitBtn, runValidation}
+export  {enableValidation, checkFormValidity}
 

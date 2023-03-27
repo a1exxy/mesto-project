@@ -1,32 +1,32 @@
 //           Изменение профайла
 
 import {openPopup, closePopup} from './modal.js'
-import {runValidation} from './validate.js'
+import {checkFormValidity} from './validate.js'
 import {classes, selectors} from './consts.js'
 const editProfilePopup = document.querySelector('.popup-editprofile') // редактирование профайла
 const editProfileBtn = document.querySelector('.profile__edit-button')
 const editProfileForm = document.querySelector('.profile-editor')
 const editProfileName = document.querySelector('.editProfileName')
 const editProfileAboutMe = document.querySelector('.editProfileAboutMe')
-const ProfileName = document.querySelector('.profile__name') // профайл
-const ProfileAboutMe = document.querySelector('.profile__about-me')
+const profileName = document.querySelector('.profile__name') // профайл
+const profileAboutMe = document.querySelector('.profile__about-me')
 
-function editProfile(){
+function initProfilePopup(){
   editProfileBtn.addEventListener('click',() => {
-    editProfileName.value = ProfileName.textContent
-    editProfileAboutMe.value = ProfileAboutMe.textContent
+    editProfileName.value = profileName.textContent
+    editProfileAboutMe.value = profileAboutMe.textContent
     openPopup(editProfilePopup)
-    runValidation('.profile-editor', selectors.inputSelector, classes.inputErrorClass, classes.errorActiveClass)
+    checkFormValidity('.profile-editor', selectors.inputSelector, classes.inputErrorClass, classes.errorActiveClass)
   })
 
   editProfileForm.addEventListener('submit', evt => {
     evt.preventDefault();
     if (editProfileName.value.length > 0 && editProfileAboutMe.value.length > 0) {
-      ProfileName.textContent = editProfileName.value
-      ProfileAboutMe.textContent = editProfileAboutMe.value
+      profileName.textContent = editProfileName.value
+      profileAboutMe.textContent = editProfileAboutMe.value
     }
     closePopup(editProfilePopup)
   });
 }
 
-export default editProfile
+export default initProfilePopup
