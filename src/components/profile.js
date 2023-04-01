@@ -51,7 +51,7 @@ function initProfilePopup(){
     Promise.resolve(updateUser(editProfileName.value, editProfileAboutMe.value))
       .then(res => { renderUserInfo(res) })
     closePopup(editProfilePopup)
-    evt.submitter.textContent = 'Сохранение'
+    evt.submitter.textContent = 'Сохранить'
   });
 
   // клик на аватарку
@@ -70,7 +70,7 @@ function initProfilePopup(){
         renderAvatar(res)
       })
     closePopup(avatarUpdatePopup)
-    evt.submitter.textContent = 'Сохранение'
+    evt.submitter.textContent = 'Сохранить'
   });
 }
 

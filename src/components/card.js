@@ -98,7 +98,7 @@ function initCardPopupListeners(userId){
       .then(res => { elements.prepend(buildCard(res.name, res.link, res.owner._id, userId, res._id, res.likes)) })
     evt.target.reset()
     closePopup(newPlacePopup)
-    evt.submitter.textContent = 'Сохранение'
+    evt.submitter.textContent = 'Сохранить'
   })
 }
 
