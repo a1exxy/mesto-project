@@ -23,7 +23,6 @@ function addCloseFunction() {
   // Закрытие попапов
   document.querySelectorAll('.popup').forEach((popup) => {
     popup.addEventListener('mousedown', (evt) => {
-      // Для информации: в yandex_browser и firefox под ubuntu воспроизвести багу с click не удалось - работает и так и так...
       if (evt.target.classList.contains('popup_opened') || evt.target.classList.contains('popup__close-button')) {
           closePopup(popup)
       }
