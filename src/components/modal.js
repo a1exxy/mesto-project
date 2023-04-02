@@ -11,6 +11,8 @@ const closePopup = (popup) => {
   // функция закрытия модального окна
   popup.classList.remove('popup_opened')
   document.removeEventListener('keydown', handleEscBtn)
+  const customEvent = new Event("cancel", {bubbles: true})
+  popup.dispatchEvent(customEvent)
 }
 
 const openPopup = (popup) => {

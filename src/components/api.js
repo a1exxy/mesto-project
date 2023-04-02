@@ -24,8 +24,6 @@ const sendRequest = (path,
       }
       return Promise.reject(`Ошибка сетевого взаимодействия: ${res.status}`);
     })
-    .then(data => { return data })
-    .catch(err => { console.log(err) })
 }
 
 const getAllCards = () => {
@@ -41,25 +39,25 @@ const addCard = (name, link) => {
   //     "name": "Луг",
   //     "link": "https://fastly.picsum.photos/id/94/700/700.jpg?hmac=LDTYq_CW39LVtcw8d1l-0nfdrGWBlRsVaz68wiqUyPg"
   //   }
-  return sendRequest('/cards', 'POST', {name: name, link: link}).then(data => data)
+  return sendRequest('/cards', 'POST', {name: name, link: link})
 }
 
 const delCard = (cardID) => {
   // Удаление карточки
   // DELETE https://{{URL}}/v1/{{COHORTID}}/cards/{{cardID}}
-  return sendRequest(`/cards/${cardID}`, 'DELETE').then(data => data)
+  return sendRequest(`/cards/${cardID}`, 'DELETE')
 }
 
 const setLike = (cardID) => {
   // Установка лайка
   // PUT https://{{URL}}/v1/{{COHORTID}}/cards/likes/{{cardID}}
-  return sendRequest(`/cards/likes/${cardID}`, 'PUT').then(data => data)
+  return sendRequest(`/cards/likes/${cardID}`, 'PUT')
 }
 
 const delLike = (cardID) => {
   // Удаление лайка
   // DELETE https://{{URL}}/v1/{{COHORTID}}/cards/likes/{{cardID}}
-  return sendRequest(`/cards/likes/${cardID}`, 'DELETE').then(data => data)
+  return sendRequest(`/cards/likes/${cardID}`, 'DELETE')
 }
 
 const updateUser = (name, about) => {
@@ -69,19 +67,20 @@ const updateUser = (name, about) => {
   //     "name": "Иван Иванов",
   //     "about": "Тестовый юнит"
   //   }
-  return sendRequest('/users/me','PATCH', {name: name, about:about}).then(data => data)
+  return sendRequest('/users/me','PATCH', {name: name, about:about})
 }
 
 const setAvatar = (avatarURL) => {
   // изменение аватарки пользователя
   // PATCH https://{{URL}}/v1/{{COHORTID}}/users/me/avatar
   //   { "avatar": "https://fastly.picsum.photos/id/310/700/700.jpg?hmac=ijt0q0p48Ew5wBBl83h2cUlty5RhVdmSU2IeYVl_ynQ" }
-  return sendRequest('/users/me/avatar', 'PATCH', {avatar:avatarURL}).then(data => data)
+  return sendRequest('/users/me/avatar', 'PATCH', {avatar:avatarURL})
 }
 
 const getUserInfo = () => {
   // запрос информации о пользователе
-  return sendRequest('/users/me').then(data => data)
+  // GET https://{{URL}}/v1/{{COHORTID}}/users/me
+  return sendRequest('/users/me')
 }
 
 export {getAllCards, updateUser, setAvatar, addCard, delCard, setLike, delLike, getUserInfo }

@@ -16,14 +16,24 @@ const image = imagePopup.querySelector('.popup__view')
 const confirmPopup = document.querySelector('.popup-confirm')
 const confirmForm = confirmPopup.querySelector('.confirm-form')
 
-const removeCard = (confirmPopup, confirmForm, card) => {
-  Promise.resolve(delCard(card.dataset.id))
+let deleteCandidateCard = null
+let deleteCandidateCardId = null
+
+const deleteCard = evt => { // обработчик подтверждения удаления карточки
+  evt.preventDefault();
+  delCard(deleteCandidateCardId)
   .then(() => {
-    card.remove()
-    confirmForm.removeEventListener('submit', removeCard)
+    deleteCandidateCard.remove()
     closePopup(confirmPopup)
   })
+  .catch(err => console.log(`Ошибка удаления карточки: ${err}`))
 }
+
+document.addEventListener('cancel', evt => { // снятие обработчика удаления, если подтверждение закрыто
+  if(evt.target.classList.contains('popup-confirm')){
+    confirmForm.removeEventListener('submit', deleteCard)
+  }
+})
 
 function buildCard(name, link, ownerId, userId, cardId, likes){
   // Функция создания карточки
@@ -39,41 +49,36 @@ function buildCard(name, link, ownerId, userId, cardId, likes){
   })
   elementImg.src = link
   elementImg.alt = "Изображение " + name
-  card.setAttribute('data-id', cardId)
   card.querySelector('.element__title').textContent = name
   card.querySelector('.element__link').addEventListener('click', evt => { // Лайки
     if(evt.target.classList.contains('element__link_active')){
-      Promise.resolve(delLike(card.dataset.id))
-        .then(()=>{
+      delLike(cardId)
+        .then(() => {
           evt.target.classList.toggle('element__link_active')
           likesCount.textContent = Number(likesCount.textContent) - 1
         })
+        .catch(err => console.log(`Ошибка удаления лайка: ${err}`))
     } else {
-      Promise.resolve(setLike(card.dataset.id))
+      setLike(cardId)
         .then(() => {
           evt.target.classList.toggle('element__link_active')
           likesCount.textContent = Number(likesCount.textContent) + 1
         })
+        .catch(err => console.log(`Ошибка добавления лайка: ${err}`))
     }
   })
   if(ownerId === userId) { // Удаление карточки
-    const removeCardHandler = () => {
-      Promise.resolve(delCard(card.dataset.id))
-      .then(() => {
-        card.remove()
-        confirmForm.removeEventListener('submit', removeCardHandler)
-        closePopup(confirmPopup)
-      })
-    }
-    trash.addEventListener('click', () => {
+    trash.addEventListener('click', () => { // открытие подтверждения удаления карточки
+      deleteCandidateCard = card
+      deleteCandidateCardId = cardId
       openPopup(confirmPopup)
-      confirmForm.addEventListener('submit', removeCardHandler)
+      confirmForm.addEventListener('submit', deleteCard, {once: true})
     })
   }
   else {
     trash.hidden = true
   }
-  card.querySelector('.element__show').addEventListener('click', () => {
+  card.querySelector('.element__show').addEventListener('click', () => { // просмотр изображения
     imageTitle.textContent = name
     image.alt = "Изображение " + name
     image.src = link
@@ -93,12 +98,15 @@ function initCardPopupListeners(userId){
   // Кнопка сохранить в форме добавления нового места
   newPlaceForm.addEventListener('submit', evt => {
     evt.preventDefault();
-    evt.submitter.textContent = 'Сохранение...'
-    Promise.resolve(addCard(newPlaceName.value, newPlaceURL.value))
-      .then(res => { elements.prepend(buildCard(res.name, res.link, res.owner._id, userId, res._id, res.likes)) })
-    evt.target.reset()
-    closePopup(newPlacePopup)
-    evt.submitter.textContent = 'Сохранить'
+    evt.submitter.textContent = 'Сохранение...' // протестировать с помощью тротленга не удалось, похоже надо тормозить бек что бы это проверить
+    addCard(newPlaceName.value, newPlaceURL.value)
+      .then(res => {
+        elements.prepend(buildCard(res.name, res.link, res.owner._id, userId, res._id, res.likes))
+        evt.target.reset()
+        closePopup(newPlacePopup)
+      })
+      .catch(err => console.log(`Ошибка добовления карточки: ${err}`))
+      .finally(evt.submitter.textContent = 'Сохранить')
   })
 }
 

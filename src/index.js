@@ -9,30 +9,22 @@ import {getAllCards, getUserInfo} from './components/api.js'
 
 addCloseFunction()         // Добавление функции закрытия для попапов
 
-Promise.resolve(getUserInfo())// Запрос данных пользователя
-  .then(res => {
-      renderProfile(res) // Отображение данных пользователя
-      initProfilePopup() // Включение формы правки профиля
-      enableValidation(  // Включение валидации в формах
-        selectors.formSelector,
-        selectors.inputSelector,
-        selectors.submitButtonSelector,
-        classes.inactiveButtonClass,
-        classes.inputErrorClass,
-        classes.errorActiveClass
-      )
-      return Promise.resolve(res._id)
-    }
-  )
-  .then(userId => {
-      Promise.resolve(getAllCards()) // запрос всех карточек
-      .then(cards => {
-        renderInitialCards(cards, userId)
-      }) // отображение всех карточек
-      initCardPopupListeners(userId) // Включение формы добавления нового места
-    }
-  )
-
+Promise.all([getUserInfo(),getAllCards()]) // Запрос данных пользователя + запрос всех карточек
+  .then(([info, initialCards])=>{
+    renderProfile(info) // Отображение данных пользователя
+    initProfilePopup() // Включение формы правки профиля
+    enableValidation(  // Включение валидации в формах
+      selectors.formSelector,
+      selectors.inputSelector,
+      selectors.submitButtonSelector,
+      classes.inactiveButtonClass,
+      classes.inputErrorClass,
+      classes.errorActiveClass
+    )
+    renderInitialCards(initialCards, info._id) // отображение всех карточек
+    initCardPopupListeners(info._id) // Включение формы добавления нового места
+  })
+  .catch(err => console.log(`Ошибка загрузки данных: ${err}`))
 
 
 
