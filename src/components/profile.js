@@ -51,7 +51,7 @@ function initProfilePopup(){
         closePopup(editProfilePopup)
       })
       .catch(err => console.log(`Ошибка сохранения профайла: ${err}`))
-      .finally(evt.submitter.textContent = 'Сохранить')
+      .finally(() => evt.submitter.textContent = 'Сохранить')
   });
 
   // клик на аватарку
@@ -69,7 +69,7 @@ function initProfilePopup(){
         closePopup(avatarUpdatePopup)
       })
       .catch(err => console.log(`Ошибка сохранения аватара: ${err}`))
-      .finally(evt.submitter.textContent = 'Сохранить')
+      .finally(() => evt.submitter.textContent = 'Сохранить')
   });
 }
 

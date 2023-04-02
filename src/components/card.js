@@ -106,7 +106,7 @@ function initCardPopupListeners(userId){
         closePopup(newPlacePopup)
       })
       .catch(err => console.log(`Ошибка добовления карточки: ${err}`))
-      .finally(evt.submitter.textContent = 'Сохранить')
+      .finally(() => evt.submitter.textContent = 'Сохранить')
   })
 }
 
