@@ -16,7 +16,7 @@ const image = imagePopup.querySelector('.popup__view')
 const confirmPopup = document.querySelector('.popup-confirm')
 const confirmForm = confirmPopup.querySelector('.confirm-form')
 
-let deleteCandidateCard = null
+let deleteCandidateCard = null // способа передать в deleteCard данные без глобальных переменных не нашел
 let deleteCandidateCardId = null
 
 const deleteCard = evt => { // обработчик подтверждения удаления карточки
@@ -29,7 +29,7 @@ const deleteCard = evt => { // обработчик подтверждения �
   .catch(err => console.log(`Ошибка удаления карточки: ${err}`))
 }
 
-document.addEventListener('cancel', evt => { // снятие обработчика удаления, если подтверждение закрыто
+document.addEventListener('cancel', evt => { // снятие обработчика удаления, если подтверждение закрыто без подтверждения
   if(evt.target.classList.contains('popup-confirm')){
     confirmForm.removeEventListener('submit', deleteCard)
   }
