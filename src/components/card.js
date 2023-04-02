@@ -98,7 +98,7 @@ function initCardPopupListeners(userId){
   // Кнопка сохранить в форме добавления нового места
   newPlaceForm.addEventListener('submit', evt => {
     evt.preventDefault();
-    evt.submitter.textContent = 'Сохранение...' // протестировать с помощью тротленга не удалось, похоже надо тормозить бек что бы это проверить
+    evt.submitter.textContent = 'Сохранение...'
     addCard(newPlaceName.value, newPlaceURL.value)
       .then(res => {
         elements.prepend(buildCard(res.name, res.link, res.owner._id, userId, res._id, res.likes))
